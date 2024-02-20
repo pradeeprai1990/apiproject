@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function App() {
   let [products,setProducts]=useState([])
@@ -52,12 +53,15 @@ function App() {
 export default App;
 
 function ProductCard({items}){
+
   return(
     <div className='shadow-lg'>
+      <Link to={`/product/${items.id}`}>
       <img className='w-[100%] h-[250px]' src={items.thumbnail}/>
       <h3 className='text-[20px] text-center py-[15px] bg-red-900 text-white'>
         {items.title}
       </h3>
+      </Link>
   </div>
   )
 }
